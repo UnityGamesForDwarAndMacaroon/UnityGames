@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraPathController : MonoBehaviour {
-    public int time = 100;
-    public string PathName = "New Path 1";
-
-    void Start()
+    public Transform pathMoveObject;
+    public Vector3 addRotation;
+    private void Update()
     {
-        iTween.MoveTo(this.gameObject, iTween.Hash(
-            "path", iTweenPath.GetPath(PathName),
-            "time", time,
-            "easeType", iTween.EaseType.linear,
-            "orienttopath", true));
+        transform.position = pathMoveObject.position;
+        transform.eulerAngles = new Vector3(0,pathMoveObject.eulerAngles.y,0);
+        transform.Rotate(addRotation);
     }
 }

@@ -3,54 +3,75 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerControl : MonoBehaviour {
-	//移動速度
-	public float X_Speed = 2.0f;
-	public float Z_Speed = 2.0f;
-	public float Y_Speed = 2.0f;
+	// インスペクター上から追加
+	public PlayerControlMotor pcMotor;
 
 	//カメラタイプ
 	//これによって操作する軸が変更される
-	public int Type = 0;
-
-	// Use this for initialization
-	void Start () {
-
+	public enum eType
+	{
+		VERTICALSCROLL,
+		HORIZONTALSCROLL
 	}
+	public eType type = eType.VERTICALSCROLL;
 
 	// Update is called once per frame
 	void Update () {
 		float vertical = Input .GetAxis("Vertical");
 		float horizontal = Input.GetAxis ("Horizontal");
+		pcMotor.basicVelocity = new Vector3();
 
-		//移動
-        if (Input.GetKey("up")) {
-			if(Type == 0){
-				transform.Translate(0, vertical * Y_Speed, 0);
-			}else if (Type == 1){
-				transform.Translate(vertical * X_Speed, 0, 0);
+		switch(type){
+			case eType.VERTICALSCROLL:
+				pcMotor.basicVelocity += new Vector3(horizontal,vertical,0);
+				break;
+			case eType.HORIZONTALSCROLL:
+				pcMotor.basicVelocity += new Vector3(vertical,0,horizontal);
+				break;
+		}
+
+		/*
+		if (Input.GetKey("up")) {
+			switch(type){
+				case eType.VERTICALSCROLL:
+					pcMotor.basicVelocity += new Vector3(0,vertical,0);
+					break;
+				case eType.HORIZONTALSCROLL:
+					pcMotor.basicVelocity += new Vector3(vertical,0,0);
+					break;
 			}
 		}
 		if (Input.GetKey("down")) {
-			if(Type == 0){
-				transform.Translate(0, vertical * Y_Speed, 0);
-			}else if (Type == 1){
-				transform.Translate(vertical * X_Speed, 0, 0);
+			switch(type){
+				case eType.VERTICALSCROLL:
+					pcMotor.basicVelocity += new Vector3(0,vertical,0);
+					break;
+				case eType.HORIZONTALSCROLL:
+					pcMotor.basicVelocity += new Vector3(vertical,0,0);
+					break;
 			}
 		}
 
 		if (Input.GetKey("left")) {
-			if(Type == 0){
-				transform.Translate(horizontal * X_Speed, 0, 0);
-			}else if (Type == 1){
-				transform.Translate(0, 0, horizontal * Z_Speed);
+			switch(type){
+				case eType.VERTICALSCROLL:
+					pcMotor.basicVelocity += new Vector3(horizontal,0,0);
+					break;
+				case eType.HORIZONTALSCROLL:
+					pcMotor.basicVelocity += new Vector3(0,0,horizontal);
+					break;
 			}
 		}
 		if (Input.GetKey("right")) {
-			if(Type == 0){
-				transform.Translate(horizontal * X_Speed, 0, 0);
-			}else if (Type == 1){
-				transform.Translate(0, 0, horizontal * Z_Speed);
+			switch(type){
+				case eType.VERTICALSCROLL:
+					pcMotor.basicVelocity += new Vector3(horizontal,0,0);
+					break;
+				case eType.HORIZONTALSCROLL:
+					pcMotor.basicVelocity += new Vector3(0,0,horizontal);
+					break;
 			}
 		}
+		*/
 	}
 }

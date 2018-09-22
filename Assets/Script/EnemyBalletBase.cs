@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBalletBase : MonoBehaviour {
+public class EnemyBulletBase : MonoBehaviour {
 
 	public float bulletSpeed = 2;
 
@@ -13,6 +13,6 @@ public class PlayerBalletBase : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		transform.Translate (bulletSpeed, 0, 0);
+		transform.Translate (-bulletSpeed, 0, 0);
 	}
 }

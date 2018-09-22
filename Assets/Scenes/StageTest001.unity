@@ -152,6 +152,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 28769538}
+  - component: {fileID: 28769541}
+  - component: {fileID: 28769540}
+  - component: {fileID: 28769539}
   m_Layer: 0
   m_Name: PlayerDummy
   m_TagString: Untagged
@@ -174,6 +177,45 @@ Transform:
   m_Father: {fileID: 1293237745}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &28769539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 28769537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81de93172e7e448069b046338c5976e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballet: {fileID: 1010730376856816, guid: 111c495ded54642c9bec34381539b6b0, type: 2}
+--- !u!114 &28769540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 28769537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39298d5ec6c084bd796ab76e50d237e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSpeed: {x: 4, y: 4, z: 4}
+  basicVelocity: {x: 0, y: 0, z: 0}
+  velocity: {x: 0, y: 0, z: 0}
+--- !u!114 &28769541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 28769537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c864a3e13a7e49ab882368147112aa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pcMotor: {fileID: 28769540}
+  type: 0
 --- !u!1 &56951861
 GameObject:
   m_ObjectHideFlags: 0
